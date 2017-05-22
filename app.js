@@ -51,8 +51,9 @@ function myFunction () {
 	var dates = datas.shift().split(',')
 	dates.shift()
 	dates.shift()
-	console.log(dates)
+
     var errorMassage = '';
+    var nameList = '';
 
 
     for (var i = 0; i < datas.length; i++) {
@@ -65,7 +66,10 @@ function myFunction () {
 
     	var name = contents[1];
 
+
     	if (name === '') { continue;};
+
+    	nameList += name + ', ';
 
     	if (contents.length != 30) {
     		errorMassage += name + '沒有28天';
@@ -91,7 +95,6 @@ function myFunction () {
     		numOf0 = findNumOfElementInArray(contents, '0')
     		console.log(newArr.length)
 
-if (newArr[newArr.length-1] !== contents[j+13]) {console.log('e')};
 
 
     		if (numOf3 < 2) {
@@ -101,5 +104,10 @@ if (newArr[newArr.length-1] !== contents[j+13]) {console.log('e')};
     	}
     }
   
-    if (errorMassage !== '') { alert(errorMassage)};
+    if (errorMassage !== '') { 
+    	alert(errorMassage)
+    }
+    else {
+    	alert('完全正確\n'+nameList+'\n  等人已驗證完畢')
+    }
 }
