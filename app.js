@@ -44,6 +44,13 @@ var newArray = clone(this);
     return newArray.slice(start, end);
 };
 
+function getSelectedValue () {
+    var options = document.getElementsByName('option')
+    for (var i = 0; i < options.length ; i++)
+        if (options[i].checked) { 
+            return parseInt(Number(options[i].value)) ;
+        };
+}
 
 function myFunction () {
 	var datas = document.getElementById('data').value.split('\n')
@@ -77,6 +84,12 @@ function myFunction () {
 
     	var numOf3 = findNumOfElementInArray(contents, '-3')
     	var numOf0 = findNumOfElementInArray(contents, '0')
+
+        var numOfNegative2 = findNumOfElementInArray(contents, '-2')
+         
+        if (numOfNegative2 != getSelectedValue()) {
+            errorMassage += name + "在 28 天中的 -2 有錯 ( "+ numOfNegative2 +"-> " + getSelectedValue() + ") \n";
+        }
 
 
     	if (numOf3 != 4) {
